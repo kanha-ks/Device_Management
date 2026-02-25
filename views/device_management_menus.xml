@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    main menu with action -->
+    <menuitem id="menu_device_management_root"
+              name="Device Management"
+              sequence="1">
+    </menuitem>
+
+    <!--    device menu-->
+    <menuitem id="menu_device_management_device"
+              name="Devices"
+              parent="menu_device_management_root"
+              sequence="1"/>
+
+    <!--    device submenu -->
+    <menuitem id="menu_device_management_device_devices"
+              name="Devices"
+              parent="menu_device_management_device"
+              action="action_device_management_device"
+              sequence="1"/>
+
+    <!--    configuration menu -->
+    <menuitem id="menu_device_management_configuration"
+              name="Configuration"
+              parent="menu_device_management_root"
+              sequence="2"/>
+
+    <!--    configuration submenu -->
+    <menuitem id="submenu_device_management_configuration_device_types"
+              name="Device Types"
+              parent="menu_device_management_configuration"
+              action="device_management_device_types"
+              sequence="1"/>
+
+    <menuitem id="submenu_device_management_configuration_device_brands"
+              name="Brands"
+              parent="menu_device_management_configuration"
+              action="device_management_device_brand"
+              sequence="2"/>
+
+    <menuitem id="submenu_device_management_configuration_device_models"
+              name="Device Models"
+              parent="menu_device_management_configuration"
+              action="device_management_device_models"
+              sequence="3"/>
+
+    <menuitem id="submenu_device_management_configuration_device_attribute"
+              name="Device Attribute"
+              parent="menu_device_management_configuration"
+              action="device_management_device_attribute"
+              sequence="4"/>
+
+      <!--    Assignment menu -->
+    <menuitem id="menu_device_management_assignment"
+              name="Assignment"
+              parent="menu_device_management_root"
+              sequence="3"/>
+
+    <menuitem id="submenu_device_management_assignment_device_assignment"
+              name="Device assignment"
+              parent="menu_device_management_assignment"
+              action="device_management_device_assignment"
+              sequence="4"/>
+
+</odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    form view -->
+    <record id="device_management_device_types_form" model="ir.ui.view">
+        <field name="name">device.device.types.form</field>
+        <field name="model">device.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                    </group>
+
+                    <notebook>
+                    <page string="Device Attributes" >
+                        <field name="device_attribute_ids"/>
+                    </page>
+                    <page string="Model Info">
+                        <field name="device_model_ids"/>
+                    </page>
+                    <page string="Devices">
+                        <field name="device_ids"/>
+                    </page>
+                </notebook>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!--    list view for a student-->
+    <record id="device_management_device_types_list_view" model="ir.ui.view">
+        <field name="name">device.types.list.view</field>
+        <field name="model">device.type</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="device_attribute_ids" widget="many2one_tags"/>
+                <field name="device_model_ids" widget="many2one_tags"/>
+                <field name="device_ids" widget="many2one_tags"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="device_management_device_types" model="ir.actions.act_window">
+        <field name="name">Device Types</field>
+        <field name="res_model">device.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

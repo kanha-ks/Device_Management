@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    form view -->
+    <record id="device_management_device_brand_form" model="ir.ui.view">
+        <field name="name">device.device.brand.form</field>
+        <field name="model">device.brand</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="device_models_ids" widget="many2one_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    list view for a sdevice brand-->
+    <record id="device_management_device_brand_list_view" model="ir.ui.view">
+        <field name="name">device.brand.list.view</field>
+        <field name="model">device.brand</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="device_models_ids"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="device_management_device_brand" model="ir.actions.act_window">
+        <field name="name">Device Brands</field>
+        <field name="res_model">device.brand</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

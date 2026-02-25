@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    form view -->
+    <record id="device_management_device_attribute_form" model="ir.ui.view">
+        <field name="name">device.attribute.form</field>
+        <field name="model">device.attribute</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="device_type_id" widget="many2one_tags"/>
+                        <field name="required"/>
+                        <field name="value_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    list view for a student-->
+    <record id="device_management_device_attribute_list" model="ir.ui.view">
+        <field name="name">device.attribute.list.view</field>
+        <field name="model">device.attribute</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="device_type_id" widget="many2one_tags"/>
+                <field name="required"/>
+                <field name="value_ids">
+                    <list>
+                      <field name="name"/> <!--wamt to show one2many fields in list view-->
+                    </list>
+                </field>
+            </list>
+        </field>
+    </record>
+
+    <record id="device_management_device_attribute" model="ir.actions.act_window">
+        <field name="name">Device Attribute</field>
+        <field name="res_model">device.attribute</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

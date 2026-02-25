@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    form view -->
+    <record id="device_management_device_view_form" model="ir.ui.view">
+        <field name="name">device.device.view.form</field>
+        <field name="model">device.device</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="shared"/>
+                        <field name="device_type_id"/>
+                        <field name="device_brand_id"/>
+                        <field name="device_model_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Attributes" name="attribute_assignment_ids">
+                            <field name="attribute_assignment_ids">
+                                <list editable="bottom">
+                                    <field name="device_attribute_id"/>
+                                    <field name="device_attribute_value_id" domain="[('device_attribute_id', 'in', device_attribute_id)]"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    list view for a student-->
+    <record id="device_management_device_list_view" model="ir.ui.view">
+        <field name="name">device.device.list.view</field>
+        <field name="model">device.device</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="shared"/>
+                <field name="device_type_id" widget="many2one_tags"/>
+                <field name="device_brand_id" widget="many2one_tags"/>
+                <field name="device_model_id" widget="many2one_tags"/>
+                <field name="attribute_assignment_ids" widget="many2one_tags"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_device_management_device" model="ir.actions.act_window">
+        <field name="name">Device</field>
+        <field name="res_model">device.device</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

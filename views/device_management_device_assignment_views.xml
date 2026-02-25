@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    form view -->
+    <record id="device_management_device_assignment_form" model="ir.ui.view">
+        <field name="name">device.assignment.form</field>
+        <field name="model">device.assignment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="device_id" widget="many2one_tags"/>
+                        <field name="employee_id" widget="many2one_tags"/>
+                        <field name="date_start"/>
+                        <field name="date_expire"/>
+                        <field name="state"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    list view for a student-->
+    <record id="device_management_device_assignment_list" model="ir.ui.view">
+        <field name="name">device.assignment.list.view</field>
+        <field name="model">device.assignment</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="device_id"  widget="many2one_tags"/>
+                <field name="employee_id" widget="many2one_tags"/>
+                <field name="date_start"/>
+                <field name="date_expire"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="device_management_device_assignment" model="ir.actions.act_window">
+        <field name="name">Device Assignment</field>
+        <field name="res_model">device.assignment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
