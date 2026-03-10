@@ -12,6 +12,11 @@
                             <label for="options">Choose:</label>
 
                             <select id="models_name" name="Model" class="js_model_click">
+
+                                <option value="" selected="selected" disabled="disabled">
+                                    Select a Model
+                                </option>
+
                                 <t t-foreach="models" t-as="model">
                                     <option t-att-value="model.model">
                                         <t t-esc="model.model"/>
