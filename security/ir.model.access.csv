@@ -8,3 +8,5 @@ access_device_attribute,access.device.attribute,model_device_attribute,base.grou
 access_device_attribute_value,access.device.attribute.value,model_device_attribute_value,base.group_user,1,1,1,1
 access_device_attribute_assignment,access.device.attribute.assignment,model_device_attribute_assignment,base.group_user,1,1,1,1
 access_device_assignment,access.device.assignment,model_device_assignment,base.group_user,1,1,1,1
+
+access_moduleName_wizard,access.device.modulename.wizard,model_device_modulename_wizard,base.group_user,1,1,1,1

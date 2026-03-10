@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <template id="model_view_template" name="Model Load Page">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <div class="container">
+                    <div class="website_model_view row text-center">
+
+                        <div class="dropdown" style="margin : 200px;">
+
+                            <label for="options">Choose:</label>
+
+                            <select id="models_name" name="Model" class="js_model_click">
+                                <t t-foreach="models" t-as="model">
+                                    <option t-att-value="model.model">
+                                        <t t-esc="model.model"/>
+                                    </option>
+                                </t>
+                            </select>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

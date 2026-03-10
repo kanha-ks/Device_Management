@@ -12,8 +12,18 @@
         'views/device_management_device_brand_views.xml',
         'views/device_management_device_models_view.xml',
         'views/device_management_device_types_views.xml',
+        'views/model_view_template.xml',
         'views/device_management_menus.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'device_management/static/src/js/list_button.js',
+            'device_management/static/src/xml/list_button.xml',
+        ],
+        'web.assets_frontend': [
+            'device_management/static/src/js/show_model_info.js',
+        ],
+    },
     'installable': True,
     'application': True,
 }
