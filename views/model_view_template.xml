@@ -9,8 +9,9 @@
 
                         <div class="dropdown" style="margin : 200px;">
 
-                            <label for="options">Choose:</label>
+                            <label for="options">Models:</label>
 
+                            <!--                            model drop down-->
                             <select id="models_name" name="Model" class="js_model_click">
 
                                 <option value="" selected="selected" disabled="disabled">
@@ -23,15 +24,20 @@
                                     </option>
                                 </t>
                             </select>
+                            <br/>
+                            <br/>
+                            <!--                            record dropdown-->
+                            <label for="record_names">Record:</label>
+                            <select id="records_name" name="Records data" class="s_record_select">
+                                <option value="">
+                                    see records
+                                </option>
+                                <option value=""/>
+                            </select>
+
+                            <button class="s_action_button" style="display:none;">Form view</button>
 
                         </div>
-
-                        <hr/>
-
-                        <div id="records_section">
-                            <!-- Related data yahan aayega -->
-                        </div>
-
                     </div>
                 </div>
             </div>

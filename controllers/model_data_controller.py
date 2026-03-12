@@ -11,11 +11,11 @@ class ModelDataController(http.Controller):
         # model_name = self.pool.get('ir.model').search(cr, uid, [('modules','ilike','device_management')])
         # model_name = [1,2,3,4]
 
-        model_name = request.env['ir.model'].search([
+        model_name = request.env['ir.model'].sudo().search([
             ('model', 'like', 'device'),
         ])
 
-        # for rendering the website page we will request to render that specific webpage
+        # for rendering the website page we will request to render that specific webpage we want
         return request.render("device_management.model_view_template", {
             'models': model_name
         })
@@ -25,17 +25,15 @@ class ModelDataController(http.Controller):
         print(f"The model I recieved is {model_name}")
 
         records = request.env[model_name].sudo().search_read([], ['id', 'display_name'])
-        #sudo() means ignore access rights / record rules. if the public user does not have permission, Odoo will still fetch the data.
-        return records
+        # sudo() means ignore access rights / record rules. if the public user does not have permission, Odoo will still fetch the data.
+        return {
+            'records': records,
+        }
 
-    @http.route('/website/get_model_records', type='json', auth='public', website=True)
-    def get_model_records(self, model_name):
-        model_obj = request.env[model_name].sudo()
+    @http.route('/website_sale/getUrlInfo', type='json', website=True, auth='public')
+    def getSpecificUrl(self, model_name):
+        domain = [('res_model', '=', model_name)]
 
-        records = model_obj.search([])
+        action_id = request.env['ir.actions.act_window'].sudo().search(domain).id
 
-        result = []
-        for rec in records:
-            result.append({'id': rec.id, 'name': rec.name})
-
-        return result
+        return action_id

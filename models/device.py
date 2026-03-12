@@ -10,6 +10,9 @@ class Device(models.Model):
     device_brand_id = fields.Many2one('device.brand', string="Brand")
     device_model_id = fields.Many2one('device.model', string="Model")
 
+    # expression widget
+    expression_widget = fields.Char(string="Expression widget")
+
     attribute_assignment_ids = fields.One2many(
         'device.attribute.assignment',
         'device_id',

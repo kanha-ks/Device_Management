@@ -13,6 +13,8 @@
                         <field name="device_type_id"/>
                         <field name="device_brand_id"/>
                         <field name="device_model_id"/>
+<!--                        expression widget -->
+<!--                        <field name="website" widget="expression"/>/-->
                     </group>
                     <notebook>
                         <page string="Attributes" name="attribute_assignment_ids">
